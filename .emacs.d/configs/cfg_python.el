@@ -16,7 +16,8 @@
 		    ;;(highlight-beyond-fill-column)
                     (define-key python-mode-map "\C-m" 'newline-and-indent)
 		    (pabbrev-mode)
-		    (abbrev-mode)
+;;;;;;;;;打开abbrev-mode后，.号不能输入
+;		    (abbrev-mode)
 	 )
       )
 )
