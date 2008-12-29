@@ -28,16 +28,17 @@
     ))
  
 (load-cfg-files '("cfg_main"
+                  "cfg_editor"
+                  "cfg_ecb"
                   "cfg_yasnippet"
                   "cfg_abbrev"
-                  ;"cfg_browse_kill_ring"
                   ;"cfg_mmm_mode"
                   "cfg_python"
                   "cfg_theme"
-                  ;"cfg_ido"
                   "cfg_anything"
                   "cfg_dired"
                   "cfg_git"
                   "cfg_highlight_line"
+                  "cfg_pair"
                   "cfg_session"
                   ))

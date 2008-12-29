@@ -7,20 +7,16 @@
   (load-file "~/.emacs")
   (message ".emacs reloaded successfully"))
 
+;个人信息设置
+(setq user-full-name "BruceXin")
+(setq user-mail-address "bruce.xin@gmail.com")
+
+
 ;; no splash screen
 (setq inhibit-startup-message t)
 
-;; allow remote editing through transmit
-(setq backup-by-copying t) 
-
 ;; make pretty
 (global-font-lock-mode 1)
- 
-;; shows current selected region
-(setq-default transient-mark-mode t)
-
-;; indent via spaces not tabs
-(setq-default indent-tabs-mode nil)
 
 ;; titlebar = buffer unless filename
 (setq frame-title-format '(buffer-file-name "%f" ("%b")))
@@ -29,9 +25,6 @@
 (show-paren-mode 1)
  
 ;(set-default-font "-adobe-courier-bold-o-normal--18-180-75-75-m-110-iso8859-13")
-
-;; TAB => 4*'\b'
-(setq default-tab-width 4)
 
 ;; line numbers
 (load-file "~/.emacs.d/vendor/linum.el")
@@ -53,7 +46,8 @@
 
 ;; get rid of yes-or-no questions - y or n is enough
 (defalias 'yes-or-no-p 'y-or-n-p)
- 
+
+;;uniquify模式，保证buffer名唯一 
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'reverse)
 (setq uniquify-separator "|")
@@ -90,6 +84,12 @@
 ;(global-set-key [(meta return)] 'toggle-fullscreen) 
 (global-set-key [f11] 'toggle-fullscreen)
 
+;显示时间
+(display-time-mode 1)
+(setq display-time-24hr-format t)
+(setq display-time-day-and-date t)
+
+
 ;; bury the buffer
 (global-set-key [f8] 'bury-buffer)
 
@@ -118,20 +118,21 @@
 ;; 				  Lorem-ipsum-list-item-end "</li>\n"
 ;; 				  Lorem-ipsum-list-end "</ul>\n")))
 
-(defun sendOmni () 
-  (interactive)
-  (let ((fname (buffer-file-name (current-buffer))))
-	(do-applescript (concat "tell front document of application \"OmniFocus\" 
-                set aTask to (make new inbox task with properties {name:\"From Emacs " 
-				(buffer-name (current-buffer)) "\", note:\"file:///" fname "  \" })
-                    tell note of aTask
-		      make new file attachment with properties {file name:\"" fname "\"}
-	            end tell
-             end tell"))
-	))
+;; For MacOSX
+;; (defun sendOmni () 
+;;   (interactive)
+;;   (let ((fname (buffer-file-name (current-buffer))))
+;; 	(do-applescript (concat "tell front document of application \"OmniFocus\" 
+;;                 set aTask to (make new inbox task with properties {name:\"From Emacs " 
+;; 				(buffer-name (current-buffer)) "\", note:\"file:///" fname "  \" })
+;;                     tell note of aTask
+;; 		      make new file attachment with properties {file name:\"" fname "\"}
+;; 	            end tell
+;;              end tell"))
+;; 	))
 
-;; I use F3 for omnifocus clipping...
-(global-set-key [f3] 'sendOmni)
+;; ;; I use F3 for omnifocus clipping...
+;; (global-set-key [f3] 'sendOmni)
 
 ;; ========== Place Backup Files in Specific Directory ==========
 
@@ -162,11 +163,6 @@
 
 ;(require 'growl)
 
-;设置删除纪录
-(setq kill-ring-max 200)
-(require 'browse-kill-ring+)
-(global-set-key (kbd "s-k") 'browse-kill-ring)
-
 ;; IDO rules
 (require 'ido)
 (ido-mode t)
@@ -194,6 +190,11 @@
 (global-set-key (kbd "C->") 'tabbar-forward-group)
 (global-set-key (kbd "C-,") 'tabbar-backward)
 (global-set-key (kbd "C-.") 'tabbar-forward)
+
+;redo
+(require 'redo)
+(global-set-key (kbd "C-+") 'redo)
+
 
 
 ;; 	"hideshow-expand affected block when using goto-line in a collapsed buffer"
