@@ -48,6 +48,6 @@
 (define-key global-map (kbd "(") 'myskeleton-pair-insert)
 (define-key global-map (kbd "[") 'myskeleton-pair-insert)
 
-(add-hook 'c-mode-hook 'myskeleton-pair-insert)
-(add-hook 'c++-mode-hook 'myskeleton-pair-insert)
-(add-hook 'python-mode-hook 'myskeleton-pair-insert)
+;; (add-hook 'c-mode-hook 'myskeleton-pair-insert)
+;; (add-hook 'c++-mode-hook 'myskeleton-pair-insert)
+;; (add-hook 'python-mode-hook 'myskeleton-pair-insert)
