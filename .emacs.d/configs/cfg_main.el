@@ -24,12 +24,12 @@
 ;; show paired parenthasis
 (show-paren-mode 1)
  
-;(set-default-font "-adobe-courier-bold-o-normal--18-180-75-75-m-110-iso8859-13")
+;(set-default-font "-urw-urw palladio l-regular-r-normal--0-0-0-0-p-0-iso8859-1")
 
 ;; line numbers
 (load-file "~/.emacs.d/vendor/linum.el")
 (global-linum-mode 1)
-(setq column-number-mode  t)
+;(setq column-number-mode  t)
 
 ;; EOL whitespace
 (setq show-trailing-whitespace t)
@@ -71,7 +71,8 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- '(default ((t (:stipple nil :background "#1e1e27" :foreground "#cfbfad" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight semi-light :height 140 :width normal :family "apple-inconsolata-medium"))))
+ '(default ((t (:stipple nil :background "#1e1e27" :foreground "#cfbfad" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight semi-light :height 140 :width normal :family "Sans Serif"))))
+; :family "apple-inconsolata-medium"))))
  '(highlight-current-line-face ((t (:background "#000000")))))
 
 
@@ -82,7 +83,8 @@
                                            nil 
                                            'fullboth)))
 ;(global-set-key [(meta return)] 'toggle-fullscreen) 
-(global-set-key [f11] 'toggle-fullscreen)
+;(global-set-key [f11] 'toggle-fullscreen)
+(toggle-fullscreen)
 
 ;显示时间
 (display-time-mode 1)

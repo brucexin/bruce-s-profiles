@@ -1,4 +1,4 @@
-(load-file "/usr/share/emacs/site-lisp/cedet/common/cedet.el")
+(load-file "~/.emacs.d/vendor/cedet-1.0pre4/common/cedet.el")
      (semantic-load-enable-code-helpers)
      (autoload 'speedbar-frame-mode "speedbar" "Popup a speedbar frame" t)
      (autoload 'speedbar-get-focus "speedbar" "Jump to speedbar frame" t)
@@ -64,8 +64,8 @@
 
 ;; ecb设置
 (add-to-list 'load-path
-	     "/usr/share/emacs/site-lisp/ecb")
-(load-file "/usr/share/emacs/site-lisp/ecb/ecb.el")
+	     "~/.emacs.d/vendor/ecb-2.32")
+(load-file "~/.emacs.d/vendor/ecb-2.32/ecb.el")
 (require 'ecb)
 (setq ecb-auto-activate nil
           ecb-tip-of-the-day nil

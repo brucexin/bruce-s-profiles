@@ -1,10 +1,10 @@
 #contributor : Ryan McGuire
 #name : Python file template .... :
 # --
-#!/usr/bin/env python
+#!/usr/bin python
 # -*- coding: utf-8 -*-
 
-__author__ = "Ryan McGuire (ryan@enigmacurry.com)"
+__author__ = "Bruce Xin (bruce.xin@gmail.com"
 __date__   = "`(current-time-string)`"
 
 

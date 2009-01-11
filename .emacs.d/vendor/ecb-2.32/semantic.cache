@@ -1,0 +1,15 @@
+;; Object ecb-2.32/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "ecb-2.32/"
+  :tables (list 
+   (semanticdb-table "ecb-speedbar.el"
+    :major-mode 'emacs-lisp-mode
+    :tags '(("silentcomp" include nil nil [2477 2498]) ("speedbar" include nil nil [2501 2520]) ("ecb-util" include nil nil [2521 2540]) ("ecb-semantic-wrapper" include nil nil [2541 2572]) ("ecb-common-browser" include nil nil [2573 2602]) ("cl" include nil nil [2654 2667]) ("silentcomp-defvar" code nil nil [2680 2718]) ("silentcomp-defvar" code nil nil [2719 2757]) ("silentcomp-defun" code nil nil [2768 2799]) ("silentcomp-defvar" code nil nil [2800 2840]) ("defgroup" code nil nil [2842 2958]) ("ecb-speedbar-before-activate-hook" variable (:user-visible-flag t) nil [2960 3320]) ("ecb-speedbar-adviced-functions" variable (:constant-flag t :default-value (quote ((speedbar-click . around) (speedbar-frame-mode . around) (dframe-select-attached-frame . after) (speedbar-get-focus . around) (dframe-mouse-set-point . around)))) nil [3322 4129]) ("ecb-speedbar-buffer-name" variable (:constant-flag t :default-value " SPEEDBAR") nil [4131 4215]) ("ecb-speedbar-buffer-selected" function nil nil [4217 4321]) ("speedbar-click" function (:arguments ("around" "ecb")) nil [4323 5474]) ("speedbar-frame-mode" function (:arguments ("around" "ecb")) nil [5477 5740]) ("speedbar-get-focus" function (:arguments ("around" "ecb")) nil [5743 6223]) ("dframe-mouse-set-point" function (:arguments ("around" "ecb")) nil [6435 7148]) ("dframe-select-attached-frame" function (:arguments ("after" "ecb")) nil [7447 7734]) ("ecb-speedbar-dframe-select-attached-window" function nil nil [7736 8137]) ("ecb-speedbar-select-speedbar-window" function nil nil [8139 8344]) ("ecb-speedbar-set-buffer" function nil nil [8346 8639]) ("ecb-speedbar-verbosity-level-old" variable nil nil [8642 8687]) ("ecb-speedbar-select-frame-method-old" variable nil nil [8688 8737]) ("ecb-speedbar-activate" function nil nil [8739 11769]) ("ecb-speedbar-deactivate" function nil nil [11772 12709]) ("ecb-speedbar-active-p" function nil nil [12713 12942]) ("ecb-speedbar-update-contents" function nil nil [12944 13051]) ("ecb-speedbar-current-buffer-sync" function (:user-visible-flag t) nil [13053 14160]) ("ecb-goto-window-speedbar" function (:user-visible-flag t) nil [14162 14396]) ("ecb-maximize-window-speedbar" function (:user-visible-flag t) nil [14398 14744]) ("ecb-speedbar-sb-tag-p" function (:arguments ("tag")) nil [14917 15085]) ("tree-buffer" include nil nil [15087 15109]) ("ecb-face" include nil nil [15110 15129]) ("ecb-create-non-semantic-tree" function (:arguments ("node" "tag-list")) nil [15130 18579]) ("ecb-get-tags-for-non-semantic-files" function nil nil [18581 20355]) ("silentcomp-provide" code nil nil [20358 20392]))
+    :file "ecb-speedbar.el"
+    :pointmax 20424
+    )
+   )
+  :file "semantic.cache"
+  :semantic-tag-version "2.0pre4"
+  :semanticdb-version "2.0pre4"
+  )

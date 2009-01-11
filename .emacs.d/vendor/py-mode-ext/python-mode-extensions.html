@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Python-mode Extensions</title>
+</head>
+
+<body>
+<h2>Python EMACS Extensions</h2>
+<p>This package contains three extensions to python-mode which I find useful when programming python. They are:</p>
+<ul>
+  <li>py-mode-ext.el which allows more convient execution of python
+  code from within emacs than can be done using python-mode. 
+  Also included are funtions which facilitate moving around an error
+  traceback. </li>
+  <li>pyp.el which facilitates the insertion of degugging print requests.</li>
+  <li>enhancements to pycomplete (pycomplete.el and pycomplete.py)
+  which shows  all possible completions within a separate buffer and
+  shows  which are methods as opposed to attributes. </li>
+</ul>
+<p>They are packaged separately so that one may choose which to use.
+I have used the first two for some time and find that they are very
+useful. The pycomplete enhancement also seems useful but I have not
+been using it long.</p>
+
+<p>I have successfully used these extensions on both Emacs-21 and
+Emacs-22. 
+
+<h3>py-mode-ext</h3>
+
+<p>I really like to run and debugging python programs from inside of
+emacs but I have wanted to see a couple of additional features added
+to python-mode.el This applies to executing the program as well as
+running with a symbolic debugger.
+
+</p><ul>
+
+<li>I want to be able to conveniently supply arguments to the
+program under test.
+<br>
+<br>
+</li><li>
+There are times when I forget to save the buffers that I am
+editing, so I would like to have emacs inquire if I want them saved
+and respond to my reply.
+
+<br>
+<br>
+</li><li> Frequently, my programs involve more than one module and
+here python-mode foils me because it saves the current buffer as a
+temporary file in a temporary directory with a manufactured, unique
+name. There is no way that another module of the program will be
+found. I therefore want any changed modules saved and executed from
+the directory where they are normally stored. Perhaps the 'main' module is not
+the one I just edited so I want to be able to specify the module
+to be entered.
+
+<br>
+<br>
+</li><li>
+I would like to have history capability to remember initial
+modules and argument lists used in the Emacs session.
+<br>
+<br>
+
+</li><li>Since python-mode allows me to execute a program with a simple key
+sequence, I then want to execute the program with the python debugger
+as easily.
+<br>
+<br>
+
+</li><li>I am a fan of PyChecker, so I want to be able to easily run that
+program from Emacs and be able to jump to source lines corresponding
+to PyChecker messages.
+
+</li></ul> py-mode-ext.el is a short bit of emacs lisp which I assert
+accomplishes the above.  I am new to writing elisp so I welcome
+comments and suggestions.
+
+
+<p>To use these extensions, py-mode-ext.el is placed in my emacs load
+path. See below for the code that I inserted into my .emacs file.
+
+
+
+<p>When the user invokes py-execute-prog or py-call-pdb, the
+following sequence occurs.
+
+</p><ol>
+<li>
+ It first reads from the mini-buffer the name of the initial file to be 
+ executed by the interpreter. If no history exists, then the file behind 
+ the current buffer is suggested.   The user may then substitute any file 
+ he wishes as the initial file to be executed by the interpreter. It will 
+ be save in a history list. 
+
+
+<br>
+<br>
+</li><li> Next, it reads from the mini-buffer the argument string to
+ be passed to the program being interpreted.  Again, if there is a
+ history of arguments, the most recent will be selected.  The user may
+ over ride the suggestion.  The argument string passed to the program
+ will be saved in a history list.
+
+
+<br>
+<br>
+</li><li>
+ It next saves all the modified buffers based on queries.   
+
+
+<br>
+<br>
+</li><li>
+ Finally, it invokes python on the initial file or it invokes pdb on 
+ the initial file.
+</li></ol>
+
+<h4>Traceback Navigation</h4>
+<p>py-mode-ext.el also includes several functions for moving up and
+down the trace back stack when a error occurs.  The following commands
+are implemented.
+
+
+<ul>
+
+<li> py-last-exception which will take you to the source line referred
+                             to in the inner most level of the
+                             traceback.  That is, the bottom or often
+                             most interesting line
+
+<li>py-next-exception which will take you to the source line referred
+                             to in next level of the trace back.
+
+<li>py-last-exception which will take you to the source line referred
+                             to in the previous level of the trace back.
+
+<li> py-current-line-exception which will take you to the source line
+                             referred to in the selected line of the
+                             trace back, i.e., select the line you
+                             want to go to in the *Python Output*
+                             window and invoke this function.
+
+
+
+</ul>
+
+
+<p>
+ You may invoke these functions with the following key sequences:
+<ul>
+<li>
+       "\C-x\C-l" 'py-last-exception
+<li>       "\C-x\C-p" 'py-previous-exception
+<li>       "\C-x\C-n" 'py-next-exception
+<li>       "\C-x\C-e" 'py-current-line-exception
+</ul>
+
+ Start with \C-x\C-l. Then move up or down the stack.
+
+<p>
+ The easist way to navigation an error trace when executing a program
+ is to use mouse-3.  [mouse-3] is defined to invoke
+ 'py-current-line-exception.  Just go to the *Python Output* window,
+ select the traceback line you want to visit with mouse-1 and push the
+ mouse-3 button. This is the variation that I use most often.
+
+<p>
+Since I have been using the traceback navigation above and pyp to
+easily insert debugging statements, I have not used the debugger very
+often. 
+
+<h4>Invoking Pychecker</h4>
+</p><p>When the user initiates the command for pychecker, it will check
+whether any buffers have been changed and ask whether you want any of
+those saved. Then it will run PyChecker against the file behind the
+current buffer.
+
+<h3>pyp</h3>
+
+
+<p>pyp is a pair of functions which facilitate adding print
+statements to a python module. They are:
+<ul>
+<li>pyp (standing for python print).  This function asks the user in the
+minibuffer for the expression to be printed.  An expression is then
+typed in and the return key is pressed.  The result is a print
+statement printing the expression as a string followed by the value of
+the expression, followed a by comment containing  by your userid  and
+pyp. In addition, the resulting output contains the name of the
+enclosing function and class included for easier identification of the
+output information.  The resulting statment looks like:<br><br>
+print "containing_class: containing_function: expression =",
+expression  # user_name pyp
+<br>
+<br>
+<li>ppy (standing for pretty print python).  This also solicits an
+expression puts out a print statement giving the expression as well as
+a statement which pretty prints the value of the expression.
+<br>
+<br>
+<li>ppyi (standing for pretty print import) which imports the ppyprint
+module and creates the prettyprint object.
+</ul>
+I attach ppy to F12 so I just have to enter the expression and hit
+return to get my debugging output. Using 'list-matching-lines' or grep
+with 'pyp' give me an easy way to remove the statements.
+
+<h3>pycomplete</h3>
+
+<p>I have included an updated version of pycomplete.
+<p>This is a nifty emacs extension which helps one to insert
+attributes and functions into a python program.  For instance, one can
+type
+<br><br>
+os.path.is
+<br><br>
+then ESC-Tab opens a window showing all attributes and function in
+os.path which begin with "is".  Also, functions are can be
+distinguished from simple attributes because they are followed by
+"()".
+
+<p>
+Pick one with the mouse and hit <ret> and the completion will take
+place. It is required that there be an appropriate include statement,
+"os.path" in the example, in order for the completion to work.  If it
+is not included one get a message the name is undefined.
+
+<p>I found an early version which was rather limited. Looking around the
+net, I found reference to an extension patch.  When I applied the
+patch, I agreed that it was better.  So I removed some unnecessary code
+from the package and added the facility to distinguish functions and
+to end up in the python buffer after the completion. There are two
+pieces to the package - pycomplete.el which is loaded by emacs so must
+be in the emacs load path and pycomplete.py which should go into an
+active site-packages directory or anywhere else in the PYTHONPATH.
+
+
+<h3>Download</h3>
+
+<p>This collection of extensions may be downloaded from
+<a href="http://sourceforge.net/projects/page">Summary Page</a>.
+
+<h3>Installaton</h3>
+
+<p>The python mode extensions are installed by placing
+"py-mode-ext.el" in the emacs load path specified in the emacs load
+path. See below for the code I use in my .emacs to activate the
+extensions.
+
+<p>To set up GUD, the emacs debugger
+for use with my python mode extensions, set the emacs option
+gud-pdbpcommand-name to point to the file "pdb.py".
+In my .emacs I have the statement:
+<br>
+<br>(gud-pdb-command-name "~/pdb.py")
+<br>
+Of course, I find that pdb.py is now located in 
+  /usr/lib/python2.5 and that location could be used in the .emacs
+  statement above. The setting can be made via the Options menu.
+
+<p>To use pyp just move pyp.el to the emacs load path and see the
+.emacs code below for attaching it to a function key.
+
+<p>Installation of pycomplete is slightly more complicated because it
+requires pymacs which needs to have been installed.  For Debian based
+systems you can probably use apt-get.  Otherwise, get a tarball and
+install it from there.  Look for "pymacs_0.22.orig.tar.gz". If you
+can't find it, I can send you a copy. 
+
+<p>I think that pymacs is really great but at present it does not
+appear to be supported and the documentation is poor like many Open
+Source programs. The main documentation problem I found was a paucity of
+examples. For instance, I fussed around for a while before I
+discovered that the output of print statements show up in the *Pymacs*
+buffer. Pymacs seems to have neither a web site nor a maintainer. Damn
+shame! 
+
+<p>Fortunately, pymacs is easier to install than to find. Instructions
+are in the package and are pretty standard with nothing to
+compile. setup.py does everything without having to compiling
+anything.  When I tried testing pycomlete under emacs-22, I found that
+merely moving pymacs.el from the distribution directory to the Emacs
+load path is sufficient.
+
+<p>Installation of pycomplete consists of merely moving pycomplete.el
+to the emacs load path and pycomplete.py to the PYTHONPATH. Again look
+at the .emacs code below.
+
+<h4>.Emacs code.</h4>
+<p>I have the following code in my .emacs to enable these extensions.
+
+</p><pre>
+(add-hook 'python-mode-hook
+       	  '(lambda ()
+             (load "py-mode-ext")  
+             (load "pyp")
+             (require 'pycomplete)
+             (define-key py-mode-map [f12] 'pyp)
+             (define-key py-mode-map "\C-c\C-c" 'py-execute-prog)
+             (define-key py-mode-map "\C-c\C-g" 'py-call-pdb)
+             (define-key py-mode-map "\C-c\C-w" 'pychecker)))
+</pre>
+
+
+
+<p>You may contact me at:
+
+<script TYPE="text/javascript">
+<!--
+emailE=('Don' + '.' + 'Rozen' + 'berg' + '@' +  'gma' + 'il' + '.com')
+document.write('<a href="mailto:' + emailE + '">' + emailE + '</a>' + '<br>')
+//-->
+</script>
+
+</body>
+</html>
