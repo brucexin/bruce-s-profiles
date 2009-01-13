@@ -18,6 +18,7 @@
 (setq load-path (cons "~/.emacs.d/vendor/magit" load-path))
 (setq load-path (cons "~/.emacs.d/vendor/emhacks" load-path))
 (setq load-path (cons "~/.emacs.d/vendor/rfcview" load-path))
+(setq load-path (cons "~/.emacs.d/vendor/file-template" load-path))
 
 (defconst emacs-config-dir "~/.emacs.d/configs/" "")
  

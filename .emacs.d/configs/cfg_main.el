@@ -202,3 +202,7 @@
 ;; 	"hideshow-expand affected block when using goto-line in a collapsed buffer"
 ;; 	(save-excursion
 ;; 		(hs-show-block)))
+
+;file template
+(require 'file-template)
+(autoload 'file-template-auto-insert "file-template" nil t)

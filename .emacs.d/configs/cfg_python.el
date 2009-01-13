@@ -15,13 +15,15 @@
 		    (set-variable 'indent-tabs-mode nil) 
 		    ;;(highlight-beyond-fill-column)
                     (define-key python-mode-map "\C-m" 'newline-and-indent)
-		    (pabbrev-mode)
+;		    (pabbrev-mode)
 ;;;;;;;;;打开abbrev-mode后，.号不能输入
 ;		    (abbrev-mode)
 	 )
       )
 )
 
+;;pycomplete
+;(require 'pycomplete)
 
 ;; pymacs
 (autoload 'pymacs-apply "pymacs")
