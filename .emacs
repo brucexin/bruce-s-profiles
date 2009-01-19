@@ -19,6 +19,9 @@
 (setq load-path (cons "~/.emacs.d/vendor/emhacks" load-path))
 (setq load-path (cons "~/.emacs.d/vendor/rfcview" load-path))
 (setq load-path (cons "~/.emacs.d/vendor/file-template" load-path))
+(setq load-path (cons "~/.emacs.d/vendor/slime" load-path))
+(setq load-path (cons "~/.emacs.d/vendor/actionscript" load-path))
+
 
 (defconst emacs-config-dir "~/.emacs.d/configs/" "")
  
@@ -32,17 +35,19 @@
 (load-cfg-files '("cfg_main"
                   "cfg_editor"
                   "cfg_ecb"
-                  "cfg_yasnippet"
-                  "cfg_abbrev"
-                  ;"cfg_mmm_mode"
-                  "cfg_python"
+;;;                   "cfg_yasnippet"
+;;;                   "cfg_abbrev"
+;;;                   ;"cfg_mmm_mode"
+;;;                   "cfg_python"
+                  "cfg_elisp"
+                  "cfg_actionscript"
                   "cfg_theme"
-                  "cfg_anything"
-                  "cfg_dired"
-                  "cfg_git"
-                  "cfg_highlight_line"
-                  ;"cfg_pair"                  
-                  "cfg_rfc"
+;;;                   "cfg_anything"
+;;;                   "cfg_dired"
+;;;                   "cfg_git"
+;;;                   "cfg_highlight_line"
+;;;                   ;"cfg_pair"                  
+;;;                   "cfg_rfc"
                   "cfg_session"
                   ))
 

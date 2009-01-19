@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC
+"-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>#TITLE#</title>
+<style class="text/css">
+body { 
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: #000000;
+}
+</style>
+</head>
+<body>
+<table align="center" width="auto" cellpadding="0" cellspacing="0" border="0">
+<tr><td><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" width=#WIDTH# height=#HEIGHT#><param name="movie" value=#SWFNAME#><param name="quality" value="high"><param name="wmode" value="opaque"><embed src="swf_html_template#SWFNAME#" width=#WIDTH# height=#HEIGHT# quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" wmode="opaque"></embed></object></td></tr>
+
+</table>
+</body>
+</html>

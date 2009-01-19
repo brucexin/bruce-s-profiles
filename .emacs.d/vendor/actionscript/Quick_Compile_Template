@@ -1,0 +1,24 @@
+class Quick_Compile_Main{
+
+	static function main(){
+
+		System.security.loadPolicyFile("xmlsocket://192.168.0.1:8007");
+
+		_global.socket = new standard.deferred.XMLSocket_Deferred();
+		var myDeferred = _global.socket.connect("192.168.0.1", "8007");
+
+		_global.tracer = new standard.debug.Profiler_Tracer();
+
+		myDeferred.addCallback(null,runCode);
+
+	}
+
+	static function runCode(){
+
+		// If we are running a whole file, then run it's main.
+		// Otherwise, insert the section of code here
+
+		#CODE#
+
+	}	
+}

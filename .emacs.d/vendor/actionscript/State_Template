@@ -1,0 +1,30 @@
+
+import standard.message.Msg_Object;
+
+class #PACKAGE_STRING##CLASSNAME# extends standard.FSM_State{
+	
+	public function #CLASSNAME#(Void){}
+
+	public function OnEnter(Void):Void{
+
+	}
+
+	public function OnMessage(msg:Msg_Object):Boolean{
+
+		return false;
+	}
+
+	public function OnUpdate(Void):Boolean{
+
+		return false;
+	}
+
+	public function OnExit(Void):Void{
+
+	}
+
+	public function toString(Void):String{
+
+		return "[" + _owner + "] #CLASSNAME#()";
+	}
+}
