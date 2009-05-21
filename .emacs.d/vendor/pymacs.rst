@@ -3,7 +3,7 @@
 .. role:: var(emphasis)
 
 ================================================================
-Pymacs version 0.24-beta1
+Pymacs version 0.23
 ================================================================
 
 ---------------------------
@@ -99,8 +99,8 @@ order):
 
   + Ropemacs -- Features like refactoring and code-assists:
 
-    + http://rope.sf.net/ropemacs.html
-    + http://rope.sf.net/hg/ropemacs
+    + http://rope.sf.net/
+    + http://rope.sf.net/hg/rpymacs
 
   + Bicycle Repair Man -- A Refactoring Tool for Python:
 
@@ -134,40 +134,12 @@ has one of them:
 
 __ http://blog.objectsroot.com/
 
+There is also `revised pymacs`, part of the Ropemacs project:
+
+  + http://rope.sourceforge.net/ropemacs.html
+
 Installation
 ============
-
-Check the search paths
-----------------------
-
-You should make sure that both Emacs and Python are usable, whatever the
-directory happens to be the current one.  This is particularly important
-at the time Emacs launches Python under the scene, as Python ought to be
-found then started.  On most systems, this means setting the search path
-correctly.
-
-The following notes, for MS Windows, have been provided by Greg Detre.
-
-+ After ``Start / Run / Cmd``, type ``python``.  If this works
-  wherever you are, then your Python installation directory is already
-  in your system's :code:`PATH` environment variable.  If that's not the
-  case, follow the instructions here to add it:
-
-    http://www.computerhope.com/issues/ch000549.htm
-
-+ You may have to add the directory containing the Python scripts that
-  you want to run through Pymacs to your :code:`PYTHONPATH` variable,
-  in the same fashion as above.  You can test this by running Python,
-  and then::
-
-   import sys
-   sys.path
-
-  or just::
-
-   import my_python_scripts
-
-  from somewhere besides your scripts directory.
 
 Select Emacs and Python
 -----------------------
@@ -1171,7 +1143,7 @@ being produced.)
 
 ::
 
-  <22     (version "0.24-beta1")
+  <22     (version "0.23")
   >43     eval lisp('(pymacs-eval "repr(2L**111)")')
   <45     (eval (progn (pymacs-eval "repr(2L**111)")))
   >19     eval repr(2L**111)

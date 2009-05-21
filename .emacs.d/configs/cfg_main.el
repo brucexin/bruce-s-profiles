@@ -206,3 +206,6 @@
 ;file template
 (require 'file-template)
 (autoload 'file-template-auto-insert "file-template" nil t)
+
+
+

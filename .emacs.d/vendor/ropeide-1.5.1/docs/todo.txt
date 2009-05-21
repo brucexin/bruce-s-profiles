@@ -1,0 +1,44 @@
+TODO
+====
+
+* Editor folding
+* Auto-importing modules
+* Replacement; M-%
+* Remembering last open project
+* Go to matching parenthesis
+* Indenting a region of a file
+* Finding available refactorings
+* Auto completion type
+
+  * Inserting or overwriting
+  * Inserting common prefixes
+
+* ReST
+
+  * highlighting inside pydocs
+  * goto definition
+  * outlines
+  * codeassists
+
+* Show PyDoc reST highlighting
+* Enhancing module running
+
+  * Showing running status in the GUI
+  * Printing output
+  * Getting input
+  * Customizing CWD and parameters
+  * Running last run
+
+* Formating code
+* Spell checking python source
+* Supporting templates in text modes
+* Next/prev sentence
+* Searching inside `EnhancedList`\s
+* Better warnings
+* View type hierarchy
+* Generate ~/.rope graphically
+
+> Public Release 1.6
+
+* auto-importing names
+* using resources parameter of refactorings

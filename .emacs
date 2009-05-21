@@ -35,19 +35,19 @@
 (load-cfg-files '("cfg_main"
                   "cfg_editor"
                   "cfg_ecb"
-;;;                   "cfg_yasnippet"
-;;;                   "cfg_abbrev"
+                  "cfg_yasnippet"
+                  "cfg_abbrev"
 ;;;                   ;"cfg_mmm_mode"
-;;;                   "cfg_python"
+                  "cfg_python"
                   "cfg_elisp"
                   "cfg_actionscript"
                   "cfg_theme"
-;;;                   "cfg_anything"
-;;;                   "cfg_dired"
-;;;                   "cfg_git"
-;;;                   "cfg_highlight_line"
-;;;                   ;"cfg_pair"                  
-;;;                   "cfg_rfc"
+                  "cfg_anything"
+                  "cfg_dired"
+                  "cfg_git"
+                  "cfg_highlight_line"
+                  ;"cfg_pair"                  
+                  "cfg_rfc"
                   "cfg_session"
                   ))
 
@@ -91,3 +91,5 @@
   ;; If there is more than one, they won't work right.
  )
 
+
+(put 'set-goal-column 'disabled nil)

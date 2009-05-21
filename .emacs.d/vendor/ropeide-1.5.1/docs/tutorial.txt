@@ -1,0 +1,333 @@
+===============
+ Rope Tutorial
+===============
+
+.. contents::
+
+Overview
+========
+
+This tutorial merely tries to demonstrate how to use some of rope's
+features.  This tutorial attempts to give a fast overview of rope and
+some of its basic features.  It covers things like opening projects,
+creating and editing files.  Read `where to go next`_ section for more
+information.
+
+
+Starting Ropeide
+================
+
+For using ropeide you need to install rope library first.  After
+installing rope (or adding it to the ``PYTHONPATH`` environment
+variable) you can start ropeide by running the ``ropeide.py`` included
+in the root of the package::
+
+  python ropeide.py
+
+Alternatively you can install ropeide and run ``ropeide`` from any
+location.
+
+
+Creating And Opening Projects
+=============================
+
+To create or open a project select the ``Open Project`` from the file
+menu.  You will be asked about the location of the root (toplevel)
+folder of your project.
+
+
+Making Files And Folders
+========================
+
+Consider we want to make a hierarchy like this::
+
+  project/
+    file1.txt
+    folder1/
+      file2.txt
+      folder2/
+        file3.txt
+
+In order to make this project tree, after opening the project you
+can use the following table.
+
+====================  ==================  =================
+Selected Menu Item    Parent Folder       File/Folder Name
+====================  ==================  =================
+File.New File                             file1.txt
+File.New Folder                           folder1
+File.New File         folder1             file2.txt
+File.New Folder       folder1             folder2
+File.New File         folder1/folder2     file3.txt
+====================  ==================  =================
+
+Note that for making ``file3.txt`` we've used ``/`` as a directory
+separator.  You should always use ``/`` as directory separator
+regardless of the operating system you are running rope on.
+
+
+Making Modules and Packages
+===========================
+
+Consider we want to make a hierarchy like this::
+
+  project/
+    mod1.py
+    pkg1/
+      __init__.py
+      mod2.py
+      pkg2/
+        __init__.py
+        mod3.py
+    src/
+       mod4.py
+
+
+In order to make this project tree, after opening the project you
+can use the following table.
+
+====================  ==================  ====================
+Selected Menu Item    Source Folder       Module/Package Name
+====================  ==================  ====================
+File.New Module                           mod1
+File.New Package                          pkg1
+File.New Module                           pkg1.mod2
+File.New package                          pkg1.pkg2
+File.New Module                           pkg1.pkg2.mod3
+File.New Folder                           src
+File.New Module       src                 mod4
+====================  ==================  ====================
+
+
+Opening Files
+=============
+
+You can select the ``Find File`` item from the ``File`` menu or use
+``C-x C-f``.  In the `Find File` dialog use the name of the file or
+module to find it.  The dialog shows all files that start with the
+given name.  Press enter to open the file.
+
+In the find file dialog, you can use ``/``\s to match parent folders.
+For instance for opening ``rope/base/__init__.py`` you can use
+``base/__init__.py`` or ``ba*/__``.
+
+
+Saving A File
+=============
+
+Use ``C-x C-s`` to save the contents of the active editor.
+
+
+Changing Editor
+===============
+
+With rope you can open and edit many files at the same time.  To switch
+between open editors you can use ``C-x b``.
+
+
+Closing An Editor
+=================
+
+Use ``C-x k`` to close active editor.
+
+
+Emacs Keybindings
+=================
+
+*rope* uses emacs keybindings most of the time.  For example in most of
+the dialogs like ``code assist`` or ``outline`` you can use ``C-n``
+and ``C-p`` to move over the items.
+
+
+Copying And Cutting
+-------------------
+
+Select the beginning of the region you want to copy or cut by moving
+the cursor on it and pressing ``Ctrl-space``.  Then move the cursor to
+the end of that region and use ``Alt-w`` or ``Ctrl-w`` for copying or
+cutting.
+
+For pasting move the cursor to the place you want to paste and press
+``Ctrl-y``.
+
+
+Undoing Actions
+===============
+
+Rope comes with two kinds of undo/redos.
+
+* Undo/redoing editing
+
+  You can undo/redo the editing changes using ``C-x u``/``C-x r``.
+
+* Undo/redoing project changes
+
+  Project changes are the changes made to the files in the project.
+  These changes consist of things like saving files, creating files/
+  folders and refactoring.  You can undo/redo project changes using
+  ``C-x p u``/``C-x p r``.
+
+
+ReStructuredText Files
+======================
+
+All ``*.txt`` files are considered to be in `ReST` format and are
+highlighted.
+
+
+Editing Python Files
+====================
+
+Rope considers all ``*.py`` files to be python files.  It highlights
+them and makes features like auto-completion, goto definition,
+show doc, quick outline, refactorings and ... available.
+
+
+Keybinding
+==========
+
+You can change the keybinding in ``~/.ropeide``.  The keybinding is
+shown next to every action in menus.  Some of these bindings are
+chosen from emacs and some from eclipse.  ("C" stands for Control key
+and "M" for Meta(Alt) key.)
+
+
+Code Assist(Auto Complete)
+==========================
+
+You can complete names as you type by using code assist (``M-/``).
+The two capital letters in the left shows the type of the proposal.
+In the first column:
+
+* L: ``local``
+* G: ``global``
+* A: ``attribute``
+* T: ``template``
+* K: ``keyword``
+* B: ``built-in``
+* P: ``parameter_keyword``
+
+In the second column if present:
+
+* C: ``class``
+* F: ``function``
+* V: ``variable``
+* P: ``paramter``
+* I: ``imported``
+
+You can use ``main``, ``testcase``, ``hash``, ``eq`` and ``super``
+templates.  You can define your own templates in ``~/.ropeide``.  See
+examples in the default ``~/.ropeide`` file. (`rope.ui.dot_rope`
+module; It will be copied to ``~/.ropeide`` if none already exists.)
+
+
+Show PyDoc
+==========
+
+By using ``C-c C-d`` you can tell rope to show the pydoc of a name if
+available.
+
+
+Goto Definition
+===============
+
+You can use ``C-c g`` for going to the line a name was defined in.
+
+
+Generate Python Elements
+========================
+
+The generate element actions make python elements.  You have to move
+on an element that does not exist and perform one of these generate
+actions.  For example::
+
+  my_print(var=1)
+
+Calling generate function on `my_print` (``C-c n f``) will result in::
+
+  def my_print(var):
+      pass
+
+
+  my_print(var=1)
+
+It handle methods, static methods, classes, variables, modules, and
+packages, too.  Generate element actions use ``C-c n`` prefix.
+
+
+Sorting Scope Elements
+======================
+
+You can use ``C-c s ...`` for sorting current scope.  ``...`` can be
+one of:
+
+* ``a``: alphabetically
+* ``k``: classes first
+* ``u``: underlineds first
+* ``p``: those that have pydoc first
+* ``s``: special methods first
+
+You can sort in the reverse order by using ``C-u`` prefix..  Sorts are
+stable.  So if you want to sort by kind and alphabetically, for
+instance, you can use ``C-c s a`` followed by ``C-c s k``.
+
+
+Saving Locations And Strings
+============================
+
+Rope can now save locations or strings in memory.  These are similar
+to emacs's bookmarks and registers.  These actions use ``C-x m``
+prefix.
+
+
+Defining Templates
+==================
+
+You can define your own templates in ``~/.ropeide``.  You can use
+``C-x c`` and a line like this::
+
+    core.add('templates', ('say_hello', "print 'Hello, my name is ${name}'\n"))
+
+This defines a new python template called ``say_hello``.  Now if you
+type ``say_`` in a python file and use code-assist (``M-/``), this
+template will be proposed.  If you press enter you can insert the
+value to be used as ``name``.
+
+
+Spell-Checker
+=============
+
+The new spell-checker uses ispell/aspell if available.  You can use
+``M-$`` like emacs for checking current word.  You can also use ``C-x
+$ r`` and ``C-x $ b`` for spell-checking region and buffer.
+
+
+Outline
+=======
+
+In tree views (like quick outline and project tree views) you can use
+``C-n`` and ``C-p`` to navigate and ``+`` and ``-`` to expand and
+collapse items.  You can use the ``Return`` key to select items.
+
+
+Project History
+===============
+
+The "Undo/Redo Project Change" in the edit menu undoes every change
+made to the files in a project; like saving files, creating files and
+folders and refactorings.  Also in "Project History" dialog you can
+see and select changes to be undone in any order.  Note that undoing
+changes in project history undoes the changes it depends on, too.
+
+
+Where To Go Next
+================
+
+The best way to learn about rope features is to use the features.  Have
+a look and try menu items.  The default keybinding for each menu item
+is written in front of them.  For example `Code` menu contains the
+entry `Code Assist (Auto-Complete) M-slash`.  This means you can use
+rope's auto-complete feature by pressing `alt` and `/` keys.  Note
+that some of the menu items disappear when you're not editing a file
+suitable for performing that action.  For example code assist command
+is only active when editing a python file.

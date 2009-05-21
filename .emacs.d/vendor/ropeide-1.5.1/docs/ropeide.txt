@@ -1,0 +1,89 @@
+=======================================
+ Ropeide, a python refactoring IDE ...
+=======================================
+
+
+Ropeide is a python refactoring IDE.  It uses rope_ library to provide
+features like refactoring, code assist and auto-completion.  It is
+written in python.  The IDE uses `Tkinter` library.
+
+You should install `rope`_ library before using this IDE.  Here are
+some `screenshots`_.  You can download ropeide from `project download
+page`_.
+
+.. _screenshots: screenshots/screenshots.html
+.. _rope: http://rope.sf.net/
+
+
+Features
+========
+
+
+* Supports refactorings that are supported by rope_ library
+
+  * Rename
+  * Extract method/local variable
+  * Move class/function/module/package/method
+  * Inline method/local variable
+  * Change method signature
+  * Restructuring
+  * Replace method with method object
+  * ...
+
+* Other refactoring-related features
+
+  * Previewing refactorings
+  * Stopping refactorings
+  * Undo/redo refactorings
+
+* Code-assists
+
+  * Auto-completion
+  * Goto definition
+  * Quick outline
+  * Show PyDoc
+  * Proposing templates in completions
+  * Find occurrences
+  * Organize imports (remove unused and duplicate imports and sort them)
+  * Generating python elements
+  * Sorting scopes
+
+* Other IDE features
+
+  * Python and reST highlighting
+  * Multiple buffers
+  * Project file history
+  * An emacs like keybinding
+  * Configurable keybinding
+  * Basic UI plug-in support
+  * Spell-checking using Aspell/Ispell
+  * Correcting indentation
+  * Project tree view
+  * Unit-test running view
+  * Basic codetags/errors/warnings listing
+  * Defining templates
+  * Memorizing strings/locations
+
+
+Source Repository
+=================
+
+Ropeide Mercurial_ repository:
+  http://rope.sourceforge.net/hg/ropeide
+
+
+Feedback
+========
+
+Send your bug reports, feature requests and patches to `rope-dev (at)
+googlegroups.com`_.
+
+
+License
+=======
+
+Ropeide is under the terms of GNU GPL (GNU General Public License).
+
+.. _project download page: http://sf.net/projects/rope/files
+.. _`rope-dev (at) googlegroups.com`: http://groups.google.com/group/rope-dev
+.. _Mercurial: http://selenic.com/mercurial

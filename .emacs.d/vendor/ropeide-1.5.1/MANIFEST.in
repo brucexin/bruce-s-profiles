@@ -1,0 +1,6 @@
+include README.txt COPYING ropeide.py setup.py MANIFEST.in
+recursive-include ropeide *.py
+recursive-include ropeidetest *.py
+recursive-include docs *.txt
+
+prune scripts
